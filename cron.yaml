@@ -1,0 +1,20 @@
+cron:
+- description: Crawling data from Apple
+  url: /crawl
+  schedule: every 1 mins from 09:31 to 23:58
+
+
+  #hkg:       every 1 mins from 23:59 to 02:59
+  #             (HKT: 0759 - 1059)
+  #707:       every 1 mins from 03:00 to 06:30
+  #             (HKT: 1100 - 1430)
+  #hkgolden:  every 1 mins from 06:31 to 09:30
+  #             (HKT: 1431 - 1730)
+  #606:       every 1 mins from 09:31 to 23:58
+  #             (HKT: 1731 - 0759)
+
+
+
+
+
+

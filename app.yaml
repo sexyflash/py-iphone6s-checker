@@ -1,0 +1,44 @@
+application: iphone6-606
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+#- url: /favicon\.ico
+#  static_files: favicon.ico
+#  upload: favicon\.ico
+
+#- url: /status
+#  script: main.getStatusApp
+
+- url: /push
+  script: main.pushStoreApp
+
+#- url: /fix
+#  script: main.quickFixApp
+
+#- url: /shareEmail
+#  script::
+
+#- url: /stat
+#  script: main.displayStatusApp
+
+- url: /getEmail
+  script: main.getEmailApp
+
+- url: /crawl
+  script: main.crawlApp
+
+- url: /success
+  script: main.successRegistrationApp
+
+- url: /failure
+  script: main.failedRegistrationApp
+
+- url: /.*
+  script: main.landingApp
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
