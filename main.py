@@ -15,9 +15,9 @@ from urllib2 import unquote
 from google.appengine.api import mail
 
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/437.78.2 (KHTML, like Gecko) Version/7.0.6 Safari/437.78.2"
-REFERRER_HK_ONLINE = "http://store.apple.com/hk/buy-iphone/iphone6"
-REFERRER_HK_LOCAL = "https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone"
-EMAIL_SENDER = "<iphone6.hkgolden@gmail.com>"
+REFERRER_JP_ONLINE = "http://store.apple.com/jp/buy-iphone/iphone6"
+REFERRER_JP_LOCAL = "https://reserve.cdn-apple.com/JP/ja_JP/reserve/iPhone"
+EMAIL_SENDER = "<sexyflash+sender@gmail.com>"
 
 ONLINE_TAG = "Online"
 
@@ -45,60 +45,77 @@ PRIVATE_KEY_606 = "6Lcm0foSAAAAADbWq505-GWq2Cm59U-tMgDrS4AN"
 PUBLIC_KEY = PUBLIC_KEY_606
 PRIVATE_KEY = PRIVATE_KEY_606
 
-#STORE_JSON_HK = "https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/stores.json"
-AVAILABILITY_JSON_HK = "https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability.json"
-STORE_JSON_HK = "https://www.dropbox.com/s/3x227l09qo49gwp/stores_hk.json?dl=1"
+STORE_JSON_JP = "https://reserve.cdn-apple.com/JP/ja_JP/reserve/iPhone/stores.json"
+AVAILABILITY_JSON_JP = "https://reserve.cdn-apple.com/JP/ja_JP/reserve/iPhone/availability.json"
+#STORE_JSON_HK = "https://www.dropbox.com/s/3x227l09qo49gwp/stores_hk.json?dl=1"
 #AVAILABILITY_JSON_HK = "https://www.dropbox.com/s/1hg8gfc7awrmlbi/AVAILABILITY_HK.json?dl=1"
 
 
 
-URLs_HK =  ["http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=silver&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=silver&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=silver&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=gold&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=gold&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=gold&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=space_gray&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=space_gray&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=space_gray&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6P?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=silver&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6P?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=silver&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6P?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=silver&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6P?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=gold&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6P?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=gold&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6P?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=gold&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6P?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=space_gray&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6P?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=space_gray&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
-"http://store.apple.com/hk/buyFlowSelectionSummary/IPHONE6P?node=home/shop_iphone/family/iphone6&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=space_gray&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED"]
+URLs_HK =  ["http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=silver&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=silver&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=silver&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=gold&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=gold&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=gold&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=space_gray&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=space_gray&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=space_gray&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=rose_gold&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=rose_gold&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6S?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=4_7inch&option.dimensionColor=rose_gold&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=silver&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=silver&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=silver&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=gold&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=gold&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=gold&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=space_gray&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=space_gray&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=space_gray&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=rose_gold&option.dimensionCapacity=16gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=rose_gold&option.dimensionCapacity=64gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED",
+"http://store.apple.com/jp/buyFlowSelectionSummary/IPHONE6PS?node=home/shop_iphone/family/iphone6s&step=select&option.dimensionScreensize=5_5inch&option.dimensionColor=rose_gold&option.dimensionCapacity=128gb&option.carrierModel=UNLOCKED%2FWW&carrierPolicyType=UNLOCKED"]
 
 
 model_map = {}
-model_map['MG482ZP/A'] = "Silver 16GB 4.7"
-model_map['MG4H2ZP/A'] = "Silver 64GB 4.7"
-model_map['MG4C2ZP/A'] = "Silver 128GB 4.7"
-model_map['MG492ZP/A'] = "Gold 16GB 4.7" # 1
-model_map['MG4J2ZP/A'] = "Gold 64GB 4.7" # 1
-model_map['MG4E2ZP/A'] = "Gold 128GB 4.7"
-model_map['MG472ZP/A'] = "Space Grey 16GB 4.7" # 1
-model_map['MG4F2ZP/A'] = "Space Grey 64GB 4.7"
-model_map['MG4A2ZP/A'] = "Space Grey 128GB 4.7" # 1
-model_map['MGA92ZP/A'] = "Silver 16GB 5.5"
-model_map['MGAJ2ZP/A'] = "Silver 64GB 5.5"
-model_map['MGAE2ZP/A'] = "Silver 128GB 5.5"
-model_map['MGAA2ZP/A'] = "Gold 16GB 5.5"
-model_map['MGAK2ZP/A'] = "Gold 64GB 5.5"
-model_map['MGAF2ZP/A'] = "Gold 128GB 5.5"
-model_map['MGA82ZP/A'] = "Space Grey 16GB 5.5"
-model_map['MGAH2ZP/A'] = "Space Grey 64GB 5.5"
-model_map['MGAC2ZP/A'] = "Space Grey 128GB 5.5"
+model_map['MKQK2J/A'] = "Silver 16GB 4.7"
+model_map['MKQP2J/A'] = "Silver 64GB 4.7"
+model_map['MKQU2J/A'] = "Silver 128GB 4.7"
+model_map['MKQL2J/A'] = "Gold 16GB 4.7" # 1
+model_map['MKQQ2J/A'] = "Gold 64GB 4.7" # 1
+model_map['MKQV2J/A'] = "Gold 128GB 4.7"
+model_map['MKQJ2J/A'] = "Space Grey 16GB 4.7" # 1
+model_map['MKQN2J/A'] = "Space Grey 64GB 4.7"
+model_map['MKQT2J/A'] = "Space Grey 128GB 4.7" # 1
+model_map['MKQM2J/A'] = "Rose Gold 16GB 4.7" # 1
+model_map['MKQR2J/A'] = "Rose Gold 64GB 4.7" # 1
+model_map['MKQW2J/A'] = "Rose Gold 128GB 4.7"
+model_map['MKU22J/A'] = "Silver 16GB 5.5"
+model_map['MKU72J/A'] = "Silver 64GB 5.5"
+model_map['MKUE2J/A'] = "Silver 128GB 5.5"
+model_map['MKU32J/A'] = "Gold 16GB 5.5"
+model_map['MKU82J/A'] = "Gold 64GB 5.5"
+model_map['MKUF2J/A'] = "Gold 128GB 5.5"
+model_map['MKU12J/A'] = "Space Grey 16GB 5.5"
+model_map['MKU62J/A'] = "Space Grey 64GB 5.5"
+model_map['MKUD2J/A'] = "Space Grey 128GB 5.5"
+model_map['MKU52J/A'] = "Rose Gold 16GB 5.5"
+model_map['MKU92J/A'] = "Rose Gold 64GB 5.5"
+model_map['MKUG2J/A'] = "Rose Gold 128GB 5.5"
 
 
 
 loc_map = {}
-loc_map['R409'] = "Causeway Bay iReserve"
-loc_map['R428'] = "IFC Mall iReserve"
-loc_map['R485'] = "Festival Walk iReserve"
-loc_map['Online'] = "store.apple.com/hk"
+loc_map['R150'] = "Sendai Ichibancho"
+loc_map['R005'] = "Nagoya Sakae"
+loc_map['R091'] = "Shinsaibashi"
+loc_map['R193'] = "Sapporo"
+loc_map['R119'] = "Shibuya"
+loc_map['R048'] = "Fukuoka Tenjin"
+loc_map['R224'] = "Omotesando"
+loc_map['R079'] = "Ginza"
+loc_map['Online'] = "store.apple.com/jp"
 
 class MailingList(ndb.Model):
     email = ndb.StringProperty()
@@ -233,7 +250,7 @@ class CrawlingHandler(webapp2.RequestHandler):
         for i in range(len(URLs_HK)):
             _url = URLs_HK[i]
             try:
-                result = urlfetch.fetch(_url, headers = {'Referer': REFERRER_HK_ONLINE,'User-Agent': USER_AGENT })
+                result = urlfetch.fetch(_url, headers = {'Referer': REFERRER_JP_ONLINE,'User-Agent': USER_AGENT })
                 logging.info("Fetching ... "+_url)
             except Exception as ex:
                 logging.error(str(type(ex).__name__)+" "+str(ex.args))
@@ -338,7 +355,7 @@ class CrawlingHandler(webapp2.RequestHandler):
 
 
     def local_store(self):
-        result = urlfetch.fetch(AVAILABILITY_JSON_HK, headers = {'Referer': REFERRER_HK_LOCAL,'User-Agent': USER_AGENT })
+        result = urlfetch.fetch(AVAILABILITY_JSON_HK, headers = {'Referer': REFERRER_JP_LOCAL,'User-Agent': USER_AGENT })
         if result.status_code == 200:
             content = json.loads(result.content)
             logging.info("local Store is reading ...."+result.content)
@@ -349,7 +366,7 @@ class CrawlingHandler(webapp2.RequestHandler):
             # Sign2: Grab one of the item's last creation to see
             if len(content) == 0:
                 location_object = Location()
-                lastSeen = location_object.get("R409").lastOpenDateTime
+                lastSeen = location_object.get("R150").lastOpenDateTime
                 if lastSeen is not None and (datetime.datetime.now() - lastSeen).seconds < 300:
                     QuickFixHandler().get()
             else:
@@ -402,12 +419,12 @@ class CrawlingHandler(webapp2.RequestHandler):
             all = obj.getAll()
             for customer in all:
                 _email = customer.email
-                sender_address = "iPhone6 開賣 Alert "+EMAIL_SENDER
-                subject = "[有貨] iPhone6 開賣 Alert 有Update."
+                sender_address = "iPhone6s On sale Alert " + EMAIL_SENDER
+                subject = "[Notification] iPhone6s began to sell."
                 body = """
-                    直入Login: https://reserve-hk.apple.com/HK/zh_HK/reserve/iPhone
+                    Login: https://reserve-jp.apple.com/JP/ja_JP/reserve/iPhone
 
-                    Check邊度有貨: https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability
+                    Check: https://reserve.cdn-apple.com/JP/ja_JP/reserve/iPhone/availability
 
                 """
                 body += _string
@@ -452,8 +469,8 @@ class DisplayStatusHandler (webapp2.RequestHandler):
         if _datetime is None:
             return "Unavailable"
         if _available == 0 or _available == 3:
-            return "Unavailable ("+ u'最近一次開售'.encode('utf8') +str(datetime.timedelta(hours=+8) + _datetime)+")"
-        return unquote(u"有得買 NOW".encode("latin1")).decode("utf8")
+            return "Unavailable ("+ u'Last sale'.encode('utf8') +str(datetime.timedelta(hours=+8) + _datetime)+")"
+        return unquote(u"Something to buy NOW".encode("latin1")).decode("utf8")
 
     def interpretAvailable(self,_available):
         if _available == 0 or _available == 3:
@@ -517,8 +534,8 @@ class LandingHandler(webapp2.RequestHandler):
         self.response.headers['Content-type'] = 'text/html'
         self.response.write("<!DOCTYPE html><html>" \
             "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\
-            <head><title> iPhone 6 Apple.com Tracker </title><body> \
-            <h1>登記 iPhone6 喺 Apple Store開售 同 iReserve預約 嘅 Mailing List </h1>\
+            <head><title> iPhone 6s Apple.com Tracker </title><body> \
+            <h1>Registration Mailing List </h1>\
             # <p> <a href=\"http://iphone6-hkg.appspot.com/stat\">iphone6-hkg.appspot.com/stat</a>: 0759 - 0847 every 1 minute<br> \
             # <p> <a href=\"http://iphone6-707.appspot.com/stat\">iphone6-707.appspot.com/stat</a>: 0847 - 2000 every 1 minute<br>\
             # <p> <a href=\"http://iphone6-hkgolden.appspot.com/stat\">iphone6-hkgolden.appspot.com/stat</a> 2001 - 0758 every 2 minutes </p> \
@@ -533,15 +550,14 @@ class LandingHandler(webapp2.RequestHandler):
                 height=\"300\" width=\"500\" frameborder=\"0\"></iframe><br> \
             <textarea name=\"recaptcha_challenge_field\" rows=\"3\" cols=\"40\"></textarea> \
             <input type=\"hidden\" name=\"recaptcha_response_field\" value=\"manual_challenge\"> </noscript></form> \
-            <p> Created By 高登高仔 @ HKGolden.com </p>\
             </body></html>")
         #<iframe src=\"/display\" style=\"border: 0; position: absolute;  left:0; right:0;  width:100%; height:100%\"\">
 
 
 class StorePushHandler(webapp2.RequestHandler):
     def get(self):
-        logging.info('Fetch data from STORE_JSON_HK')
-        result = urlfetch.fetch(STORE_JSON_HK)
+        logging.info('Fetch data from STORE_JSON_JP')
+        result = urlfetch.fetch(STORE_JSON_JP)
         content = json.loads(result.content)
         stores = content["stores"]
         for s in stores:
@@ -551,15 +567,14 @@ class StorePushHandler(webapp2.RequestHandler):
 class SuccessRegistrationHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write("<html><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\
-        <body><h1>搞掂咗。你會收到一封Email架。<p> You will receive a confirmation email containing \
+        <body><h1>You will receive an Email rack.<p> You will receive a confirmation email containing \
             information how to unsubscribe</p></body></html>")
 
 class FailedRegistrationHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write("<html><head><meta http-equiv=\"refresh\" content=\"3;url=/\" /> \
         <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /></head><body>\
-        <h1> 可能一) 錯Captcha呀。你係小學雞。啲字母都搞唔清。再嚟過啦。 </h1> \
-        <h1> 可能二) 你咪入過囉. 做乜搞多次. </h1> \
+        <h1> Captcha wrong way. Department of Primary chicken you. GOD letters are engaged Well clear. And then come out and walk through it. </h1> \
         <p>Redirecting in 3 seconds... or <a href=\"/\" >Click here to the landing page. \
         </a></p></body></html>")
 
@@ -574,99 +589,22 @@ class ObtainEmailHandler(webapp2.RequestHandler):
     def get(self):
         password = self.request.get("password")
         if password == "dying":
-            list = ["3dmouse@gmail.com",
-"U3503819@GMAIL.COM",
-"andrew030608@yahoo.com.hk",
-"awdhoward@gmail.com",
-"beauty235@gmail.com",
-"bennylai@cen-1.com",
-"chanhok@live.hk",
-"cheukhinli@yahoo.com.hk",
-"danielckn89@gmail.com",
-"jonathanyth@gmail.com",
-"kc343000@gmail.com",
-"laihiube@gmail.com",
-"lcklrt1004@gmail.com",
-"michaelwong1231@gmail.com",
-"oscarlai2383@gmail.com",
-"ryantck@gmail.com",
-"s6f318484@hotmail.com",
-"sailokto@yahoo.com.hk",
-"wuwuyan1214@yahoo.com.hk",
-"U3503819@GMAIL.COM",
-"abc12tong@gmail.com",
-"allanlui@hotmail.com",
-"andrew030608@yahoo.com.hk",
-"awdhoward@gmail.com",
-"beauty235@gmail.com",
-"bennylai@cen-1.com",
-"chanhok@live.hk",
-"cheukhinli@yahoo.com.hk",
-"chunyin18@hotmail.com",
-"danielckn89@gmail.com",
-"elviskong11@gmail.com",
-"ericchong@live.com",
-"heston922@gmail.com",
-"ho.wu@me.com",
-"jasonwong110@outlook.com",
-"jonathanyth@gmail.com",
-"kc343000@gmail.com",
-"laihiube@gmail.com",
-"lam_hugo_2005@hotmail.com",
-"lcklrt1004@gmail.com",
-"liontung93@gmail.com",
-"mamayhk@yahoo.com.hk",
-"marshallskioa@gmail.com",
-"michaelso1394@yahoo.com.hk",
-"michaelwong1231@gmail.com",
-"oscarlai2383@gmail.com",
-"peterso123@gmail.com",
-"rocky1d36@gmail.com",
-"ryantck@gmail.com",
-"s6f318484@hotmail.com",
-"sailokto@yahoo.com.hk",
-"tidusapple@yahoo.com.hk",
-"tradingaccount@live.hk",
-"wailuntse2010@gmail.com",
-"wuwuyan1214@yahoo.com.hk",
-"zjbthomas@qq.com",
-"85026663@qq.com",
-"U3503819@GMAIL.COM",
-"andrew030608@yahoo.com.hk",
-"awdhoward@gmail.com",
-"beauty235@gmail.com",
-"bennylai@cen-1.com",
-"chanhok@live.hk",
-"cheukhinli@yahoo.com.hk",
-"danielckn89@gmail.com",
-"jasonwong110@outlook.com",
-"jaylok401@yahoo.com.hk",
-"jonathanyth@gmail.com",
-"kc343000@gmail.com",
-"laihiube@gmail.com",
-"lcklrt1004@gmail.com",
-"michaelwong1231@gmail.com",
-"oscarlai2383@gmail.com",
-"ryantck@gmail.com",
-"s6f318484@hotmail.com",
-"sailokto@yahoo.com.hk",
-"wuwuyan1214@yahoo.com.hk",
-"yuenhochi123456@yahoo.com.hk","julianshew@gmail.com"]
+            list = ["sexyflash@gmail.com","sexyflash+usa@gmail.com","aniyakatz@gmail.com","aniya.japan@gmail.com"]
             obj = MailingList()
             for _email in list:
                 if mail.is_email_valid(_email):
                     if obj.store(_email) is True:
-                        sender_address = "iPhone6 開賣 Alert "+EMAIL_SENDER
-                        subject = "多謝登記 iPhone6 開賣 Alert 服務"
+                        sender_address = "iPhone6 On sale Alert "+EMAIL_SENDER
+                        subject = "iPhone6 On sale Alert Service"
                         body = """
 
-                             最終入口: http://iphone6-hkgolden.appspot.com/
-                             Backup1: http://iphone6-hkg.appspot.com/
-                             Backup2: http://iphone6-707.appspot.com/
+                            Final entry: http://iphone6-hkgolden.appspot.com/
+                            Backup1: http://iphone6-hkg.appspot.com/
+                            Backup2: http://iphone6-707.appspot.com/
 
-                             直入Login: https://reserve-hk.apple.com/HK/zh_HK/reserve/iPhone
+                            Login: https://reserve-jp.apple.com/JP/ja_JP/reserve/iPhone
 
-                            Check邊度有貨: https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability
+                            Check: https://reserve.cdn-apple.com/JP/ja_JP/reserve/iPhone/availability
 
                         """
                         #mail.send_mail(sender_address,_email, subject, body)
@@ -703,17 +641,17 @@ class ObtainEmailHandler(webapp2.RequestHandler):
             if mail.is_email_valid(_email):
                 if obj.store(_email) is True:
 
-                    sender_address = "iPhone6 開賣 Alert <naivedevelopers@gmail.com>"
-                    subject = "多謝登記 iPhone6 開賣 Alert 服務"
+                    sender_address = "iPhone6 On sale Alert <naivedevelopers@gmail.com>"
+                    subject = "Thank Registration iPhone6 On sale Alert Service"
                     body = """
 
-                         最終入口: http://iphone6-hkgolden.appspot.com/
+                         Final entry: http://iphone6-hkgolden.appspot.com/
                          Backup1: http://iphone6-hkg.appspot.com/
                          Backup2: http://iphone6-707.appspot.com/
 
-                         直入Login: https://reserve-hk.apple.com/HK/zh_HK/reserve/iPhone
+                         Login: https://reserve-jp.apple.com/JP/ja_JP/reserve/iPhone
 
-                        Check邊度有貨: https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability
+                        Check: https://reserve.cdn-apple.com/JP/ja_JP/reserve/iPhone/availability
 
                     """
                     mail.send_mail(sender_address,_email, subject, body)
